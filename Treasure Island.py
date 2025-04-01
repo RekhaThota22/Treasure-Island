@@ -22,7 +22,11 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/
 *******************************************************************************)''')
 
-
+def replay():
+    replay = input("Do you want to play again ? Yes or No :").lower()
+    if replay != 'yes':
+        print("ThankYou for playing ! Good bye")
+        return
 def play_game():
     decision = input(f"You are at a cross road . Where do you want to go ? \n Type 'left' or 'right' ").lower()
     if decision not in ['left', 'right']:
@@ -33,17 +37,23 @@ def play_game():
             lake = input(
                 f"There is an Island on the middle of the lake. \n Do you want to swim or wait for a boat? \n Type 'swim or 'wait' ").lower()
             if lake == 'wait':
-                door = (input(f"You arrive at the Island unharmed \n There ia house with 3 doors .\n "
+                door = (input(f"You arrive at the Island unharmed \n There is a house with 3 doors .\n "
                               f"one red ,one yellow and one blue \n "
                               f"which one do you choose\n"))
                 if door == 'red':
                     print(f"Room is full of fire \n GAME OVER")
+                    break
+
                 elif door == 'yellow':
                     print(f"You found the treasure \n You Win")
+                    break
                 elif door == 'blue':
                     print(f"Room is full of beasts \n GAME OVER")
+                    break
                 else:
                     print(f"You choose a door that doesn't exists \n GAME OVER")
+                    break
+
 
             elif lake == 'swim':
                 print(f"Attacked by trout. \n GAME OVER")
@@ -58,9 +68,6 @@ def play_game():
 
 while True:
     play_game()
-    replay = input("Do you want to play again ? Yes or No :").lower()
-    if replay!='yes' :
-        print("ThankYou for playing ! Good bye")
-        break
+    replay()
 
 
